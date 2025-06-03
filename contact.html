@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>PortFolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="prenom">
+            <p>Dicklan LAGARRIGUE</p>
+        </div>
+        <div class="test">
+            <nav class="menu">
+                <a class="button " href="index.html">Accueil</a>
+                <a class="button" href="interet.html">Centres d'intêret</a>
+                <a class="button" href="technique.html">Réalisation Technique</a>
+                <a class="button" href="perso.html">Projet Personel</a>
+                <a class="button active" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="essai">
+        <h2>Vous pouvez me contacter ou télécharger mon CV</h2>
+        <div class="testrow">
+
+            <div class="contact">
+                <div class="info">
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" placeholder="Hamilton" required/> 
+                </div>
+                <div class="info">
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" placeholder="Lewis" required
+                />
+                </div>
+                <div class="info">
+                <label for="email">E-Mail :</label>
+                <input type="email" name="email" placeholder="blabla@oui.com"
+                id="email" required/>
+                </div>
+                    <div class="message-box">
+                        <input textarea name="descriptif" rows="5" cols="30"  placeholder="Écris quelque chose..." class="input-text">
+                      </div>
+                <div class="button">
+                    <button class="send-button">Envoyer</button>
+                </div>
+                
+            </div>
+            <div class="cv">
+                <a href="CV Anonyme-2-1.pdf" download class="download-button">Télécharger le PDF</a>
+                <iframe src="CV Anonyme-2-1.pdf" width="600" height="800"></iframe>
+            </div>
+        </div>
+ 
+    
+    </div>
+  
+
+
+</body>
+</html>

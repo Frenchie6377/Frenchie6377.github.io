@@ -1,0 +1,338 @@
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
+body {
+    font-family: Oswald, sans-serif;
+    background-color: #faebca;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+header {
+  background: rgb(252, 252, 252);
+  text-align: center;
+  width: auto;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px; 
+  box-shadow: 1px 1px 3px #aaa;
+}
+
+.prenom {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 50%;
+  display: flex;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin: 0; 
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 0; 
+  align-items: center;
+  margin: 0; 
+}
+  
+  
+  .menu {
+    display: flex;
+    padding: 10px;
+  
+  }
+  
+  
+  .button {
+    color: #000000;
+    font-size: 18px;
+    border: none;
+    background: none;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin: 15px;
+}
+
+
+
+.button.active:after {
+  width: 100%; 
+  background: #000000; 
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #000000;
+    transition: width 0.3s;
+}
+
+.button:hover {
+    color: #aaa;
+}
+
+.button:hover:after {
+    width: 100%;
+}
+
+/* Accueil */
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+  margin: 50px; 
+  animation: fadeIn 1s ease-in-out;
+}
+
+.prenom {
+  text-decoration: underline; 
+}
+.prenom2 {
+  text-decoration: underline; 
+}
+.text {
+  text-align: center; 
+  font-size: 24px;
+  color: #333;
+  padding: 20px; 
+  justify-content: right;
+}
+
+.Photo {
+  display: flex;
+  justify-content: center; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center; 
+  margin-right: 20px; 
+}
+
+.photo {
+
+  width: 300px; 
+  height: 350px; 
+  border-radius: 150px; 
+  margin-right: 20px; 
+  object-fit: cover; 
+}
+
+/* Centres d'intêret */
+
+.photographie {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin: 50px; 
+  animation: fadeIn 1s ease-in-out;
+  
+}
+
+.titre {
+  text-align: center; 
+
+  padding: 5px; 
+}
+
+.Explication {
+  text-align: center; 
+  font-size: 24px;
+  color: #333;
+  padding: 20px; 
+}
+
+.Explication .mission {
+  text-decoration: underline;
+  padding-bottom: 20px;
+}
+.photo2 {
+  max-width: 500px; 
+  height: auto; 
+  border-radius: 10px; 
+  margin-right: 20px; 
+  object-fit: contain; 
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fullscreen img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 0; 
+  cursor: pointer; 
+}
+
+.OrdreDeMalte {
+
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  animation: fadeIn 1s ease-in-out;
+  background-color: white;
+  width: 80%; 
+  height: auto; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  border-radius: 10px; 
+  margin: auto; 
+  margin-bottom: 50px;
+  padding: 50px;
+}
+
+.histoire {
+  display: flex;
+    flex-direction:row; 
+    justify-content:flex-start; 
+    
+}
+
+.histoire a {
+  text-decoration: none; 
+  color: #333; 
+  transition: 0.5s;
+}
+
+.histoire a:hover {
+  color: #aaa; 
+}
+
+.aujourdhui ul {
+  list-style: none;
+  padding: 0; 
+  margin: 0; 
+  text-align: left; 
+}
+
+.aujourdhui li {
+  display: flex; 
+  align-items: flex-start; 
+  margin-bottom: 20px;  
+}
+
+.malte {
+  max-width: 150px; 
+  height: auto; 
+  border-radius: 10px; 
+  margin-right: 20px; 
+  object-fit: contain;
+   
+}
+
+
+/* Contatct */
+
+.essai {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin: 50px; 
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testrow {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: top; 
+  margin-bottom: 20px; 
+}
+
+.contact {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin: 70px; 
+  animation: fadeIn 1s ease-in-out;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+ 
+}
+
+.info {
+  padding: 10px;
+}
+
+.cv {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  animation: fadeIn 1s ease-in-out;
+}
+.message-box {
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
+
+}
+
+.input-text {
+  width: 300px;     
+  height: 100px;     
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 12px;
+  background-color: white;
+ 
+}
+
+.send-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #ff7300;
+  color: white;
+  padding: 10px ;
+  margin: 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
