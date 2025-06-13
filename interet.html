@@ -17,21 +17,26 @@
             <nav class="menu">
                 <a class="button" href="index.html">Accueil</a>
                 <a class="button active" href="interet.html">Centres d'intêret</a>
-                <a class="button" href="technique.html">Réalisation Technique</a>
+                <a class="button " href="technique.html">Réalisation Technique</a>
                 <a class="button" href="perso.html">Projet Personel</a>
                 <a class="button" href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
-
+    
     <div class="photographie">
-        <div class="Explication">
-            <h2>La photographie</h2>
-            <p>Je suis passionné depuis peu par la photographie, la photographie me permet de capturer ces moments qui sont à mes yeux magnifique.</p>
-            <p>Je n'ai pas encores réalisé un compte Instagram mais à l'avenir je compte en créer un qui me permetera de partager toutes mes images que j'ai pu faire.</p>
-            <p>Voici un exemple de photographie que j'ai pu faire :</p>
 
-        </div>
+<div class="Explication">
+    <h1>À propos de moi</h1>
+    <p>Je m'appelle Dicklan LAGARRIGUE, j'ai 19 ans et je suis étudiant en première année de BUT Informatique à l'IUT d'Aubière. Grâce à cette formation, j'ai pu apprendre à réaliser des programmes dans des langages différents tels que le C, C++ ou encore C#. Mais aussi à réaliser des sites internet avec HTML, CSS et PHP ainsi que de la gestion de base de données avec SQL.</p>
+    <p>En dehors de l'informatique, j'aime faire du sport, notamment le tennis, sport que je pratique depuis 7 ans maintenant.</p>
+    <p>Sur la suite de cette page, vous trouverez mes <strong>différents centres d'intérêt :</strong></p>
+    <h2>La photographie</h2>
+    <p>Je suis passionné depuis peu par la photographie. La photographie me permet de capturer ces moments qui sont, à mes yeux, magnifiques.</p>
+    <p>Je n'ai pas encore réalisé de compte Instagram, mais à l'avenir, je compte en créer un qui me permettra de partager toutes mes images.</p>
+    <p>Voici un exemple de photographie que j'ai pu faire :</p>
+</div>
+
         <div class="Photo">
             <div>
                 <img src="maison.jpeg" class="photo2" alt="Photo de Dicklan Lagarrigue" onclick="openFullscreen(this.src)">
@@ -49,10 +54,34 @@
 
         <div id="fullscreen-container" class="fullscreen" style="display: none;" onclick="closeFullscreen()">
             <img id="fullscreen-image" src="" alt="Fullscreen Image">
-          </div>
+        </div>
+<div class="materiel">
+  <h2>Le matériel utilisé :</h2>
+  
+  <p><strong>Boîtier Reflex</strong> : Canon EOS 7D. Pour plus d'informations à son sujet, vous pouvez consulter sa page Wikipédia : 
+    <a href="https://fr.wikipedia.org/wiki/Canon_EOS_7D" target="_blank">Canon EOS 7D</a>
+  </p>
+  
+  <p><strong>Objectifs :</strong></p>
+  <ul>
+    <li>
+      Canon EF 75-300mm f/4-5,6 III USM. Le lien suivant vous redirige vers une présentation détaillée de cet objectif : 
+      <a href="https://www.canon.fr/lenses/ef-75-300mm-f-4-5-6-iii-usm-lens/" target="_blank">Canon EF 75-300mm f/4-5,6 III USM</a>
+    </li>
+    <li>
+      Yongnuo 50mm f/1,8. Voici un lien vers un test de cet objectif : 
+      <a href="https://www.lesnumeriques.com/focales-fixes/yongnuo-ef-50-mm-f-1-8-p29795/test.html" target="_blank">Yongnuo 50mm f/1,8</a>
+    </li>
+  </ul>
+
+  <p><strong>Stockage</strong> : carte SD SanDisk de 32 Go. Plus d’informations ici : 
+    <a href="https://www.amazon.fr/SanDisk-M%C3%A9moire-microSDHC-Adaptateur-homologu%C3%A9e/dp/B08GY9NYRM" target="_blank">Carte SD 32 Go</a>
+  </p>
+</div>
+
     </div>
 
-    <h1>METTRE LE MATERIEL UTILISE</h1>
+    
     <script>
         function openFullscreen(imageSrc) {
             const fullscreenContainer = document.getElementById('fullscreen-container');
@@ -66,34 +95,36 @@
             fullscreenContainer.style.display = 'none';
         }
     </script>
-
-    <div class="OrdreDeMalte">
-        <div class="histoire">
-            <div class="Photo">
-            <img src="malte.png"  alt="Photo de Dicklan Lagarrigue">
-            </div>
-            <div class="Explication">
-            <p>L'Ordre de Malte est apparue en 1043 à Jerusalem, Il a été fondé initialement pour accueillir dans un hôpital, les pèlerins qui arrivaient chaque année en Terre Sainte. Avec l’aide de ses chevaliers, l’Ordre de Malte assure alors la défense militaire des malades et de ces pèlerins pour protéger ses centres médicaux et les routes principales.</p>
+<div class="OrdreDeMalte">
+    <div class="histoire">
+        <div class="Photo">
+            <img src="malte.png" alt="Photo de Dicklan Lagarrigue">
+        </div>
+        <div class="Explication">
+            <strong>Ordre de Malte France</strong>
+            <p>L'Ordre de Malte est apparu en 1048 à Jérusalem. Il a été fondé initialement pour accueillir dans un hôpital les pèlerins qui arrivaient chaque année en Terre Sainte. Avec l’aide de ses chevaliers, l’Ordre de Malte assurait alors la défense militaire des malades et de ces pèlerins pour protéger ses centres médicaux et les routes principales.</p>
             <p>Il s'agit de l’un des plus anciens organismes caritatifs au monde. Sa vocation millénaire au service des plus pauvres et des plus vulnérables perdure et se traduit aujourd’hui par des actions dans 120 pays.</p>
             <p>L’organisation est restée fidèle à sa vocation originelle, celle des premiers « Hospitaliers », tout en s’adaptant à travers les siècles. Aujourd’hui encore, elle soutient les pouvoirs publics en menant des actions au cœur des enjeux sociétaux contemporains, qu’ils soient d’ordre social ou sanitaire.</p>
-            <p>Si vous voulez en savoir plus voici un lien pour aller sur le site: <a href="https://www.ordredemaltefrance.org/" target="_blank">Ordre de Malte France</a></p>
-            </div>
+            <p>Si vous voulez en savoir plus, voici un lien pour aller sur le site : <a href="https://www.ordredemaltefrance.org/" target="_blank">Ordre de Malte France</a></p>
         </div>
-        <div class="aujourdhui">
-            <div class="Explication">
-                <p class="mission">Aujourd'hui l'Ordre de Malte compte de nombreuse missions et dans différent secteur comme :</p>
-                <ul>
-                    <li><img src="solidarite.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Solidarité</strong> : Don de repas, acte de soin ou encore hébergement d'urgence.</li>
-                    <li><img src="secourisme.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Secourisme </strong>: Soutien aux populations, Poste de secours ou encore des formations aux gestes qui sauvent.</li>
-                    <li><img src="medicosocial.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Medico-social</strong> : Un accompagnement individualisé avec un projet de vie établi en fonction de chacun, dans le souci de son bien-être.</li>
-                    <li><img src="international.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>International</strong> : Lutte contre la lèpre ou encore sur la santé materno-infantile.</li>
-            </div>
-            <div class="Explication">
-                <p>Je suis actuellement en formation pour devenir secouriste, car c'est pour moi une nécessité de savoir réagir face à une personne qui en a le besoin.</p>
-                <p>Je dispose aujourdhui de la formation Premier Secours Citoyen (PSC) qui ne me permet pas encore d'être secouriste et mi-juin je serai formé pour le Premier Secours en Equipe (PSE1) qui permettera d'être équipier secouriste. </p>
-            </div>
-        </div>   
     </div>
+    <div class="aujourdhui">
+        <div class="Explication">
+            <p class="mission">Aujourd'hui, l'Ordre de Malte compte de nombreuses missions dans différents secteurs comme :</p>
+            <ul>
+                <li><img src="solidarite.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Solidarité</strong> : Don de repas, actes de soin ou encore hébergement d'urgence.</li>
+                <li><img src="secourisme.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Secourisme</strong> : Soutien aux populations, poste de secours ou encore des formations aux gestes qui sauvent.</li>
+                <li><img src="medicosocial.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>Médico-social</strong> : Un accompagnement individualisé avec un projet de vie établi en fonction de chacun, dans le souci de son bien-être.</li>
+                <li><img src="international.png" class="malte" alt="Photo de Dicklan Lagarrigue"><strong>International</strong> : Lutte contre la lèpre ou encore la santé materno-infantile.</li>
+            </ul>
+        </div>
+        <div class="Explication">
+            <p>Je suis actuellement en formation pour devenir secouriste, car c'est pour moi une nécessité de savoir réagir face à une personne qui en a besoin.</p>
+            <p>Je dispose aujourd'hui de la formation Premiers Secours Civiques (PSC1) qui ne me permet pas encore d'être secouriste. Mi-juin, je serai formé aux Premiers Secours en Équipe de niveau 1 (PSE1), ce qui me permettra d'être équipier secouriste.</p>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

@@ -2,11 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>PortFolio</title>
+    <title>PortFolio - Contact</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS - Version mise à jour -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -15,51 +18,135 @@
         </div>
         <div class="test">
             <nav class="menu">
-                <a class="button " href="index.html">Accueil</a>
-                <a class="button" href="interet.html">Centres d'intêret</a>
+                <a class="button" href="index.html">Accueil</a>
+                <a class="button" href="interet.html">Centres d'intérêt</a>
                 <a class="button" href="technique.html">Réalisation Technique</a>
-                <a class="button" href="perso.html">Projet Personel</a>
-                <a class="button active" href="contact.html">Contact</a>
+                <a class="button" href="perso.html">Projet Personnel</a>
+                <a class="button active" href="contact.html">Contact | CV</a>
             </nav>
         </div>
     </header>
+    
     <div class="essai">
-        <h2>Vous pouvez me contacter ou télécharger mon CV</h2>
         <div class="testrow">
-
             <div class="contact">
-                <div class="info">
-                <label for="nom">Nom :</label>
-                <input type="text" name="nom" id="nom" placeholder="Hamilton" required/> 
-                </div>
-                <div class="info">
-                <label for="prenom">Prénom :</label>
-                <input type="text" name="prenom" id="prenom" placeholder="Lewis" required
-                />
-                </div>
-                <div class="info">
-                <label for="email">E-Mail :</label>
-                <input type="email" name="email" placeholder="blabla@oui.com"
-                id="email" required/>
-                </div>
+                <h2>Vous pouvez me contacter ici :</h2>
+                <form id="contact-form">
+                    <div class="info">
+                        <label for="nom">Nom :</label>
+                        <input type="text" name="nom" id="nom" placeholder="Dupont" required>
+                    </div>
+                    <div class="info">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" name="prenom" id="prenom" placeholder="Jean" required>
+                    </div>
+                    <div class="info">
+                        <label for="email">E-Mail :</label>
+                        <input type="email" name="email" placeholder="jean.dupont@email.com" id="email" required>
+                    </div>
                     <div class="message-box">
-                        <input textarea name="descriptif" rows="5" cols="30"  placeholder="Écris quelque chose..." class="input-text">
-                      </div>
-                <div class="button">
-                    <button class="send-button">Envoyer</button>
-                </div>
+                        <textarea name="descriptif" rows="5" cols="30" placeholder="Votre message..." class="input-text" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="send-button">Envoyer</button>
+                    </div>
+                </form>
                 
+                <!-- Message de confirmation -->
+                <div id="success-message" style="display: none; color: green; margin-top: 10px;">
+                    ✅ Message envoyé avec succès !
+                </div>
+                <div id="error-message" style="display: none; color: red; margin-top: 10px;">
+                    ❌ Erreur lors de l'envoi. Veuillez réessayer.
+                </div>
             </div>
+
             <div class="cv">
+                <div class="coordonnees">
+                    <h2>Mes coordonnées :</h2>
+                    <p><strong>Email</strong> : dicklan.lagarrigue@etu.uca.fr</p>
+                    <p>Vous pouvez aussi me retrouver ici :</p>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/dicklan-lagarrigue-a3b7232b5" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
                 <a href="CV Anonyme-2-1.pdf" download class="download-button">Télécharger le PDF</a>
-                <iframe src="CV Anonyme-2-1.pdf" width="600" height="800"></iframe>
             </div>
         </div>
- 
-    
     </div>
-  
 
+    <script type="text/javascript">
+        // Configuration EmailJS
+        const CONFIG = {
+            publicKey: "ixKhES1Y8btjCQ4jZ",
+            serviceId: "service_kyuux2v",
+            templateId: "template_wqe98xd"
+        };
 
+        // Initialisation d'EmailJS
+        (function() {
+            console.log('Initialisation d\'EmailJS...');
+            emailjs.init(CONFIG.publicKey);
+            console.log('EmailJS initialisé avec succès');
+        })();
+
+        // Gestion du formulaire
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const submitButton = form.querySelector('.send-button');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Masquer les messages précédents
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Désactiver le bouton pendant l'envoi
+                submitButton.disabled = true;
+                submitButton.textContent = 'Envoi en cours...';
+
+                // Récupérer les données du formulaire
+                const formData = new FormData(this);
+                const templateParams = {
+                    nom: formData.get('nom'),
+                    prenom: formData.get('prenom'),
+                    email: formData.get('email'),
+                    descriptif: formData.get('descriptif')
+                };
+
+                console.log('Envoi de l\'email avec les paramètres:', templateParams);
+
+                // Envoyer l'email
+                emailjs.send(CONFIG.serviceId, CONFIG.templateId, templateParams)
+                    .then(function(response) {
+                        console.log('Email envoyé avec succès!', response);
+                        
+                        // Afficher le message de succès
+                        successMessage.style.display = 'block';
+                        
+                        // Réinitialiser le formulaire
+                        form.reset();
+                        
+                        // Faire défiler vers le message de succès
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    })
+                    .catch(function(error) {
+                        console.error('Erreur lors de l\'envoi:', error);
+                        
+                        // Afficher le message d'erreur
+                        errorMessage.style.display = 'block';
+                        errorMessage.textContent = `❌ Erreur: ${error.text || 'Veuillez réessayer plus tard'}`;
+                    })
+                    .finally(function() {
+                        // Réactiver le bouton
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Envoyer';
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
