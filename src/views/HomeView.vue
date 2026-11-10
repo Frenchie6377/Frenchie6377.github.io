@@ -1,67 +1,19 @@
-<script setup>
-import { onBeforeUnmount, onMounted } from 'vue'
-
-const lockClass = 'home-lock'
-
-onMounted(() => {
-  document.body.classList.add(lockClass)
-})
-
-onBeforeUnmount(() => {
-  document.body.classList.remove(lockClass)
-})
-</script>
-
 <template>
-  <section class="presentation hero-landscape">
-    <div class="landscape" aria-hidden="true">
-      <div class="sky">
-        <span class="sun"></span>
-        <span class="cloud cloud-1"></span>
-        <span class="cloud cloud-2"></span>
-        <span class="cloud cloud-3"></span>
-        <span class="bird bird-1"></span>
-        <span class="bird bird-2"></span>
+  <main class="home-page">
+    <section class="home-hero content-width">
+      <div class="hero-label"><span>Portfolio BUT2A</span><span>Étudiant en informatique</span></div>
+      <div class="hero-grid">
+        <div class="profile-visual"><img src="/photo.png" alt="Dicklan Lagarrigue" /></div>
+        <div class="hero-copy"><p class="kicker">Bonjour, je suis</p><h1>Dicklan<br /><em>LAGARRIGUE</em><span>.</span></h1><p class="lead">Je suis actuellement étudiant en première année au sein du BUT Informatique à Clermont-Ferrand afin de devenir développeur.</p><p>Depuis peu, j'ai rejoint l'association Ordre de Malte en tant que bénévole. Celle-ci me forme pour devenir secouriste, car j'aime pouvoir porter secours aux personnes qui en ont besoin.</p><p>J'aime aussi la photographie de paysage. La nature qui m'entoure m'inspire et la photographie me permet de capturer ces paysages qui sont, à mes yeux, magnifiques.</p><RouterLink class="round-arrow" to="/a-propos" aria-label="Découvrir mes centres d'intérêt">↘</RouterLink></div>
       </div>
-      <div class="horizon">
-        <div class="forest forest-1"></div>
-        <div class="forest forest-2"></div>
-        <div class="forest forest-3"></div>
-      </div>
-      <div class="ground"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="Photo">
-        <div class="profile-frame landscape-frame">
-          <span class="frame-glow"></span>
-          <span class="leaf leaf-1"></span>
-          <span class="leaf leaf-2"></span>
-          <span class="leaf leaf-3"></span>
-          <span class="flower flower-1"></span>
-          <span class="flower flower-2"></span>
-          <span class="frame-cloud frame-cloud-1"></span>
-          <span class="frame-cloud frame-cloud-2"></span>
-          <img src="/photo.png" class="photo" alt="Photo de Dicklan Lagarrigue" />
-        </div>
-      </div>
-
-      <div class="text hero-text">
-        <h2 class="prenom2">Dicklan LAGARRIGUE</h2>
-        <p>
-          Je suis Dicklan Lagarrigue, actuellement étudiant en première année au sein du
-          BUT Informatique à Clermont-Ferrand afin de devenir développeur.
-        </p>
-        <p>
-          Depuis peu, j'ai rejoint l'association Ordre de Malte en tant que bénévole. Celle-ci me
-          forme pour devenir secouriste, car j'aime pouvoir porter secours aux personnes qui en ont besoin.
-        </p>
-        <p>
-          J'aime aussi la photographie de paysage. J'adore admirer la nature qui
-          m'entoure et la photographie me permet de capturer ces paysages qui sont, à mes
-          yeux, magnifiques.
-        </p>
-      </div>
-    </div>
-  </section>
+      <div class="hero-bottom"><span>Bienvenue sur mon portfolio</span><i></i><span>01 — 04</span></div>
+    </section>
+    <section class="home-teaser content-width"><div><span class="eyebrow">Le portfolio</span><h2>Apprendre.<br /><em>Construire.</em><br />Partager.</h2></div><div class="teaser-copy"><p>Retrouvez mes réalisations techniques et personnelles, présentées avec leur contexte, mon rôle et les technologies utilisées.</p><RouterLink class="text-link" to="/projets">Voir mes projets <span>↗</span></RouterLink></div></section>
+  </main>
 </template>
+
+<style scoped>
+.content-width { margin: auto; max-width: 1200px; padding-left: clamp(1.25rem, 6vw, 7.5rem); padding-right: clamp(1.25rem, 6vw, 7.5rem); }.home-hero { background: radial-gradient(circle at 20% 25%, rgba(216,243,106,.6), transparent 20rem), var(--cream); min-height: calc(100vh - 68px); padding-bottom: 2.5rem; padding-top: 5rem; position: relative; }.home-hero::after { background: rgba(183,216,255,.3); border-radius: 50%; content: ''; filter: blur(1px); height: min(35vw, 29rem); position: absolute; right: 11%; top: 22%; width: min(35vw, 29rem); }.hero-label, .hero-bottom { color: var(--muted); display: flex; font-family: 'DM Mono', monospace; font-size: .65rem; justify-content: space-between; text-transform: uppercase; }.hero-label span:last-child, .hero-bottom span:last-child { color: var(--ink); }.hero-grid { align-items: center; display: grid; gap: 9vw; grid-template-columns: .8fr 1.2fr; margin: 12vh 0 12vh; position: relative; z-index: 1; }.profile-visual { align-items: center; display: flex; justify-content: center; position: relative; }.profile-visual img { animation: profileFloat 5s ease-in-out 1.1s infinite; aspect-ratio: 4 / 5; border: 10px solid var(--paper); box-shadow: 1.2rem 1.2rem 0 var(--ink); filter: saturate(.9); object-fit: cover; transform: rotate(-3deg); width: min(100%, 23rem); }.hero-copy { animation: copyReveal .8s ease-out both; max-width: 41rem; }.kicker, .eyebrow { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .67rem; text-transform: uppercase; }.home-hero h1 { font-size: clamp(4rem, 8vw, 8rem); letter-spacing: -.1em; line-height: .82; margin: 1rem 0 2rem; }.home-hero h1 em, h2 em { color: #87a819; font-style: normal; }.home-hero h1 span { color: #87a819; }.hero-copy p:not(.kicker) { color: var(--muted); font-size: .92rem; line-height: 1.75; max-width: 36rem; }.hero-copy .lead { color: var(--ink); font-size: 1.05rem; }.round-arrow { align-items: center; border: 1px solid var(--ink); border-radius: 50%; color: var(--ink); display: flex; font-size: 1.6rem; height: 4.5rem; justify-content: center; margin-top: 2rem; text-decoration: none; transition: .3s; width: 4.5rem; }.round-arrow:hover { background: var(--lime); transform: rotate(-45deg); }.hero-bottom i { background: var(--line); display: block; flex: 1; height: 1px; margin: 0 1rem; }.home-teaser { display: grid; gap: 10vw; grid-template-columns: 1fr 1fr; padding-bottom: 9rem; padding-top: 9rem; }.home-teaser h2 { font-size: clamp(3rem, 6vw, 6.2rem); letter-spacing: -.09em; line-height: .9; margin: 1rem 0; }.teaser-copy { align-self: end; max-width: 22rem; }.teaser-copy p { color: var(--muted); font-size: .9rem; line-height: 1.75; }.text-link { border-bottom: 1px solid var(--line); color: var(--ink); display: inline-flex; font-size: .75rem; gap: 1rem; padding-bottom: .45rem; text-decoration: none; text-transform: uppercase; }.text-link span { color: #87a819; }
+.home-hero::after { display: none; } @keyframes profileFloat { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(0) translateY(-.65rem); } } @keyframes copyReveal { from { opacity: 0; transform: translateY(1.5rem); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 680px) { .home-hero { min-height: auto; padding-bottom: 2rem; padding-top: 3.5rem; }.hero-grid { display: block; margin: 7rem 0 5rem; }.profile-visual { margin: 0 auto 4rem; width: 70%; }.hero-copy h1 { font-size: clamp(3.7rem, 16vw, 6rem); }.hero-copy p:not(.kicker) { font-size: .88rem; }.home-hero::after { height: 15rem; right: -4rem; top: 25%; width: 15rem; }.home-teaser { display: block; padding-bottom: 5rem; padding-top: 5rem; }.teaser-copy { margin-top: 3rem; } }
+</style>

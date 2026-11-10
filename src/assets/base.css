@@ -1,0 +1,10 @@
+:root {
+  font-family: 'Manrope', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { line-height: 1.5; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }

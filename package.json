@@ -1,6 +1,6 @@
 {
-  "name": "dicklan-portfolio",
-  "version": "0.0.0",
+  "name": "portfolio-vue",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,15 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.31",
-    "vue-router": "^5.0.4"
+    "@vitejs/plugin-vue": "^6.0.4",
+    "vite": "^7.3.1",
+    "vue": "^3.5.29",
+    "vue-router": "^4.6.4"
   },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.5",
-    "vite": "^8.0.3",
-    "vite-plugin-vue-devtools": "^8.1.1"
-  },
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  }
+  "devDependencies": {}
 }

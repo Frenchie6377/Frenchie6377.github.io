@@ -1,127 +1,20 @@
-<script setup>
-import { onMounted, reactive, ref } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 
-const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`
+const sent = ref(false)
+const form = ref({ name: '', email: '', message: '' })
 
-const isSubmitting = ref(false)
-const successMessage = ref('')
-const errorMessage = ref('')
-
-const formState = reactive({
-  nom: '',
-  prenom: '',
-  email: '',
-  descriptif: ''
-})
-
-const emailConfig = {
-  publicKey: 'ixKhES1Y8btjCQ4jZ',
-  serviceId: 'service_kyuux2v',
-  templateId: 'template_wqe98xd'
+function submitForm() {
+  sent.value = true
+  form.value = { name: '', email: '', message: '' }
 }
-
-const resetForm = () => {
-  formState.nom = ''
-  formState.prenom = ''
-  formState.email = ''
-  formState.descriptif = ''
-}
-
-const handleSubmit = async () => {
-  successMessage.value = ''
-  errorMessage.value = ''
-  isSubmitting.value = true
-
-  const emailjs = window.emailjs
-  if (!emailjs) {
-    errorMessage.value = "EmailJS n'est pas chargé."
-    isSubmitting.value = false
-    return
-  }
-
-  try {
-    await emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
-      nom: formState.nom,
-      prenom: formState.prenom,
-      email: formState.email,
-      descriptif: formState.descriptif
-    })
-
-    successMessage.value = '✅ Message envoyé avec succès !'
-    resetForm()
-  } catch (error) {
-    errorMessage.value = `❌ Erreur: ${error?.text || 'Veuillez réessayer plus tard'}`
-  } finally {
-    isSubmitting.value = false
-  }
-}
-
-onMounted(() => {
-  if (window.emailjs) {
-    window.emailjs.init(emailConfig.publicKey)
-  }
-})
 </script>
 
 <template>
-  <section class="essai">
-    <div class="testrow">
-      <div class="contact">
-        <h2>Vous pouvez me contacter ici :</h2>
-        <form id="contact-form" @submit.prevent="handleSubmit">
-          <div class="info">
-            <label for="nom">Nom :</label>
-            <input id="nom" v-model="formState.nom" type="text" name="nom" placeholder="Dupont" required />
-          </div>
-          <div class="info">
-            <label for="prenom">Prénom :</label>
-            <input id="prenom" v-model="formState.prenom" type="text" name="prenom" placeholder="Jean" required />
-          </div>
-          <div class="info">
-            <label for="email">E-Mail :</label>
-            <input id="email" v-model="formState.email" type="email" name="email" placeholder="jean.dupont@email.com" required />
-          </div>
-          <div class="message-box">
-            <textarea
-              v-model="formState.descriptif"
-              name="descriptif"
-              rows="5"
-              cols="30"
-              placeholder="Votre message..."
-              class="input-text"
-              required
-            ></textarea>
-          </div>
-          <div>
-            <button type="submit" class="send-button" :disabled="isSubmitting">
-              {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer' }}
-            </button>
-          </div>
-        </form>
-
-        <div v-show="successMessage" class="status-message success-message">
-          {{ successMessage }}
-        </div>
-        <div v-show="errorMessage" class="status-message error-message">
-          {{ errorMessage }}
-        </div>
-      </div>
-
-      <div class="cv">
-        <div class="coordonnees">
-          <h2>Mes coordonnées :</h2>
-          <p><strong>Email</strong> : dicklan.lagarrigue@etu.uca.fr</p>
-          <p>Vous pouvez aussi me retrouver ici :</p>
-          <ul>
-            <li>
-              <a href="https://www.linkedin.com/in/dicklan-lagarrigue-a3b7232b5" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </div>
-        <a :href="cvUrl" download class="download-button">Télécharger le CV</a>
-      </div>
-    </div>
-  </section>
+  <main class="contact-page content-width"><div class="page-heading"><span class="eyebrow">04 — Contact</span><span>Me contacter</span></div><section class="contact-layout"><div><h1>Parlons de<br /><em>votre projet.</em></h1><p>Une question, une idée ou l'envie d'échanger sur votre projet ? Écrivez-moi.</p><div class="contact-details"><span class="eyebrow">Coordonnées</span><a href="mailto:email@exemple.com">[email@exemple.com]</a><a href="tel:+33">[+33 X XX XX XX XX]</a><a href="https://github.com" target="_blank" rel="noreferrer">[github.com/username] ↗</a></div></div><form v-if="!sent" class="contact-form" @submit.prevent="submitForm"><label>Votre nom<input v-model="form.name" required type="text" placeholder="Prénom Nom" /></label><label>Votre email<input v-model="form.email" required type="email" placeholder="email@exemple.com" /></label><label>Votre message<textarea v-model="form.message" required rows="5" placeholder="Votre message..."></textarea></label><button type="submit">Envoyer le message <span>↗</span></button></form><div v-else class="success"><span>✳</span><h2>Message reçu.</h2><p>Merci pour votre message. Je reviendrai vers vous rapidement.</p><button type="button" @click="sent = false">Envoyer un autre message</button></div></section></main>
 </template>
+
+<style scoped>
+.content-width { margin: auto; max-width: 1200px; padding-left: clamp(1.25rem, 6vw, 7.5rem); padding-right: clamp(1.25rem, 6vw, 7.5rem); }.contact-page { padding-bottom: 8rem; padding-top: 5rem; }.page-heading { border-bottom: 1px solid var(--line); color: var(--muted); display: flex; font-family: 'DM Mono', monospace; font-size: .65rem; justify-content: space-between; padding-bottom: 1.5rem; text-transform: uppercase; }.eyebrow { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .67rem; text-transform: uppercase; }.contact-layout { display: grid; gap: 10vw; grid-template-columns: 1fr 1fr; padding: 7rem 0; }.contact-layout h1 { font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: -.1em; line-height: .86; margin: 0; }.contact-layout h1 em { color: #87a819; font-style: normal; }.contact-layout > div > p { color: var(--muted); font-size: .9rem; line-height: 1.7; margin: 2rem 0 4rem; max-width: 19rem; }.contact-details { border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 1rem; padding-top: 1.2rem; }.contact-details a { color: var(--ink); font-size: .85rem; text-decoration: none; }.contact-details a:hover { color: #87a819; }.contact-form { border-top: 1px solid var(--line); }.contact-form label { border-bottom: 1px solid var(--line); color: var(--muted); display: block; font-size: .65rem; padding: 1rem 0; text-transform: uppercase; }.contact-form input, .contact-form textarea { background: none; border: 0; color: var(--ink); display: block; font-size: .95rem; margin-top: .5rem; outline: none; resize: vertical; width: 100%; }.contact-form input::placeholder, .contact-form textarea::placeholder { color: #9aa49b; }.contact-form button { background: var(--ink); border: 0; color: var(--paper); font-size: .7rem; margin-top: 2rem; padding: 1rem 1.3rem; text-transform: uppercase; }.contact-form button span { color: var(--lime); margin-left: 2rem; }.success { align-self: start; background: var(--lime); padding: 3rem; }.success > span { color: #4f701b; font-size: 2rem; }.success h2 { font-size: 2rem; letter-spacing: -.06em; margin: 1rem 0 .5rem; }.success p { color: #536244; }.success button { background: none; border: 0; border-bottom: 1px solid var(--ink); padding: 0 0 .4rem; }
+@media (max-width: 680px) { .contact-page { padding-bottom: 5rem; padding-top: 3.5rem; }.contact-layout { display: block; padding: 4rem 0 0; }.contact-layout > div > p { margin-bottom: 3rem; }.contact-form, .success { margin-top: 4rem; } }
+</style>

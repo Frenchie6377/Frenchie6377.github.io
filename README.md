@@ -1,38 +1,28 @@
-# Dicklan-portfolio
+# Portfolio Camille Martin
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio personnel construit avec Vue 3 et Vite.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Lancer le projet
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Pour générer la version de production :
 
 ```sh
 npm run build
 ```
+
+## Organisation
+
+Le projet reprend une organisation inspirée du modèle MVC :
+
+- `src/router.ts` définit les routes `/`, `/a-propos`, `/projets` et `/contact`.
+- `src/views/` contient une vue indépendante pour chaque page.
+- `src/components/` contient les éléments partagés comme la navigation et le pied de page.
+- Les formulaires et interactions sont contrôlés localement dans leurs vues.
+- `src/assets/` centralise les styles globaux et les variables visuelles.
+
+Les textes utilisés reprennent les informations disponibles dans le premier portfolio : `Portfolio BUT2A`, `Étudiant en BUT Informatique (2e année)`, ainsi que les coordonnées encore indiquées sous forme de placeholders.
