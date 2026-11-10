@@ -15,6 +15,7 @@ const closeMenu = () => { menuOpen.value = false }
       <RouterLink to="/" @click="closeMenu">Accueil</RouterLink>
       <RouterLink to="/a-propos" @click="closeMenu">À propos</RouterLink>
       <RouterLink to="/projets" @click="closeMenu">Projets</RouterLink>
+      <RouterLink to="/experiences" @click="closeMenu">Expériences</RouterLink>
       <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
     </nav>
     <span class="student-badge">BUT2A</span>

@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <p>© 2026 Ton Prénom Ton Nom - Portfolio BUT2A</p>
+    <p>© 2026 Dicklan Lagarrigue - Portfolio BUT2A</p>
     <div><RouterLink to="/contact">Me contacter ↗</RouterLink><span>Étudiant en BUT Informatique</span></div>
   </footer>
 </template>
